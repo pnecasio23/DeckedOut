@@ -1,0 +1,70 @@
+E11 - NECASIO, Paul Timothy R.
+22 March 2021
+
+WELCOME TO DECKED OUT!
+
+INTRODUCTION
+
+Decked Out is a dungeon-crawling game originally implemented in
+Minecraft by a YouTuber named TangoTek. The game features the mechanics of
+dungeon adventuring, deck building, treasure hunting, and trading. The goal of
+the game is to complete a set of artifacts, which are sprinkled within the
+dungeon. The player should follow a compass through the dungeon and throw it
+in the marked location. A loot box containing artifacts, cards, coins, and other loot
+will pop up. The player should go back to the entrance of the dungeon while
+avoiding enemies that could kill the player. Points will be received after completing
+sets of artifacts. Coins will be used to buy items and gears from the shops. Artifacts
+can be traded for coins while cards can be traded for higher tier cards.
+
+This Java implementation covers most of these features in an RPG style. There will be
+some tweaks to the original game to further fit the RPG components.
+
+
+THE DUNGEON
+
+A dungeon will be generated every run. A key is needed to enter the dungeon. The player
+will be placed in a grid of tiles with various elements. Tiles have different biomes
+and different rooms. Tiles might also have closed sides. When a player hits a wall, 
+a message will be shown. The player can move by entering directions such as up, down, 
+left and right. Hostile entities will also be spawned in a random tile in the dungeon. 
+When a hostile entity meets a player, a turn-based combat system will be shown. The player
+can attack, defend, or run. When the player is dead, they will be immediately exit the
+dungeon. Random loot barrels will also be sprinkled around the dungeon. Random soul flame
+chambers will be around the dungeon. Punching them will increase the chances of receiving
+higher tier cards when a dungeon is completed.
+
+THE TREASURE
+
+While in the dungeon, a compass will be shown which has directions to the treasure tile.
+The player should follow this direction while avoiding hostile entities and obstacles.
+When the player reaches the treasure tile, a message will be shown and a lootbox will be
+given to the player. The player now needs to run back to the entrance while still avoiding
+hostile entities and obstacles. When a dungeon is finished, the player has to choose from
+3 random cards. More soul flamed punched, higher tier cards. After exiting the dungeon, 
+the player should go to the shop to open the lootbox and received its loot.
+
+THE SHOP
+
+In the main screen, there is an option to visit the shop. The player can submit their lootbox
+in there to receive its contents. The player can also buy dungeon keys, dungeon lootboxes,
+foods, potions, armors, weapons, shields, etc. There is also an option to pray in the AFK
+throne where there is a chance to receive a free dungeon key.
+
+THE TRADING AREA
+
+A trading area is also provided by the hall. In there you can trade 3 artifacts to coins, 
+a complete set to points, 3 tier I cards to a random tier II card, and 3 tier II cards to a 
+random tier III card.
+
+THE PLAYER AND THE ITEMS
+
+The player have several attributes such as health (HP), hunger, defense points (DP or DEF),
+attack points (AP or ATK), armor slot, weapon slot, shield slot, food inventory, potion
+inventory, misc inventory, card set, card deck, artifact board, and etc. Armor will
+provide additional defense points and will reduce damage.  Weapons will increase attack
+points and damage. Shields will provide an option to defend from hostile entities without
+taking any damage. Food will provide hunger. Potion will provide various effects for the
+player. Miscellaneous items will be used to trade with villagers for coins (unimplemented).
+Cards will provide adjustments in the dungeon such as loot number and soul flames. Artifacts
+are collectible items that belong to set. Completing a set will give the player points.
+Artifacts can also be traded for coins.

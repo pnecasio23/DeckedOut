@@ -1,0 +1,406 @@
+DeckedOut_Java DevLog
+
+11/24/2020
+- New project, 2d tile style Decked Out
+- Started Main.java
+- Started SpriteSheet.java
+- Added sprite_sheet.png
+- Colors are now 4-bit
+
+11/25/2020
+- Started Screen.java
+- Started InputHandler.java
+- Started Colors.java
+- Screen is visible and functional
+- Keys are now functional
+- Colors are now 6-bit
+
+11/26/2020
+- Started Font.java
+- Started Level.java
+- Started Tile.java
+- Started BasicTile.java
+- Added void, grass, and stone textures
+
+11/27/2020
+- Frame is malfunctioning, tiles are not visible anymore
+- Gave up
+
+----------------------------------------------------
+
+11/29/2020 (0_01a) Pre-Classic Update
+- New project, text-based Decked Out
+- Started Game.java, Inventory.java, Dungeon.java, Tile.java
+- Added coins, keys, loot boxes (omega, mega, normal)
+- Added 4 test biomes: Cave (Excavation Room, Vaults, Barracks), Castle (Blacksmith, Jail Cells, Wine Room, Training Room, Library), Nether (Nether Fortress Wastes, Basalt Delta Bastion, Warped Forest Vineyard, Crimson Forest Cafe, Soul Sand Sauna), Mountains (Hiking Site, Stargazing Site, Glacier Caverns, Cementary)
+- Added loot box randomizer (omega 1-60 coins, mega 1-30 coins, normal 1-10 coins)
+- Added random room biome and room type generation
+- Added barrel loot randomizer (1-10 coins)
+
+11/30/2020 (0_02a) Classic Update
+- Removed test biomes and rooms
+- Added new biomes: Forest, The Keep, Blackstone Keep, Nether Fortress
+- New biome and room generator (random array instead of random switch-case)
+- Added tons of new rooms: "Forest", "The Keep", "Blackstone Keep", "Nether Fortress", "Graveyard", "Camp Site", "Small Desert", "The Lakes", "Ice Mountain", "Throne Room", "Smithing Room", "Temple", "Winery", "The Library", "The Vaults", "Prison", "Torture Chamber", "Dragon Temple", "Cavern of Souls", "Wither Rose Graden", "Web of Lies", "Gold Room", "Warped Forest", "Crimson Forest"
+- Added Ancient Temple - Entrance room exclusive for 0, 0
+- Added difficulties: Easy (5x5), Normal (10x10), Hard (10x10)
+- Started Artifact.java
+- Added artifacts and 4 sets: Dragon Set, Wither Set, Nether Set, Jungle Set
+
+12/04/2020 (0_03a) Artifacts and Cards Update
+- New artifacts storage and randomizer system (array [set no.] [rarity no.])
+- Added rarity for artifacts (instead of 25% chance per rarity)
+- Lootboxes now give 3 random artifacts
+- Started Trade.java
+- Added trade artifacts to points (strictly same set and complete rarities
+- Added trade artifacts to coins (up to 20 coins, random chance to receive a key)
+- Can now remove and add artifacts in board
+
+12/08/2020 (0_03b) Artifacts and Cards Update
+- Started Card.java
+- Added card deck and randomizer system (array [set no.] [level no.])
+- Added Stealth, Beast Sense, Loot Finder, and Soul Seeker cards (no functionalities yet)
+- Added rarity for cards
+- Added soul flames
+- Rarity now based on number of soul flames punched
+- Pick-a-card section after completing the dungeon
+- Trading for I to II cards and II to III cards now functional
+- Exit input is not based on numbers anymore
+
+12/10/2020 (0_04a) Closed Halls Update
+- Added compass system (prints out cardinal directions pointing to the treasure tile)
+- Added debug mode
+- Each side of a room now has a 20% chance of being locked, so does the connecting side in the other room
+- Soul flames now only generate one per room (instead of 3)
+- Soul flames now only have a 30% chance to generate (40% before)
+
+12/12/2020 (0_05a) Market and Clank Update
+- Started Shop.java
+- New shop for dungeon keys (15 coins), dungeon lootboxes (50 coins)
+- Added clank aka the dungeon's heartbeat (40% chance to generate 1-5 clank)
+- Added Black Market (accessible only in Cavern of Souls room)
+- Added gambling in Black Market (1 in 9 chance of receiving 1-10 coins, 8 in 9 chance generating clank)
+- New card set system, 5 cards to be processed for new dungeon experiences
+- Cards now has effects (except Beast Sense)
+- Every level of Stealth now decreases the chance to generate clank by 2%
+- Every level of Loot Finder increases the chance to find a barrel by 1% and increases the maximum amount of coins generated in the barrel by 1
+- Every level of Soul Seeker increases the chance to find a soul flame by 2% and adds a multiplier of 1 for every soul flame punched
+- Every loot box now comes with a random tier-II card
+
+12/14/2020 (0_06a) Survival Update
+- Changed the card setting system
+- You can now only change your set if you have at least 5 cards in your deck
+- Started Inventory.java, Food.java, Armor.java, Weapon.java, and Entity.java
+- Added inventory system
+- Added eating and equipping
+- Added apples, bread, and steak
+- Added leather armor and diamond armor
+- Added wooden sword and diamond sword
+
+12/21/2020 (0_06b) Survival Update
+- Dungeons are now pre-generated
+- generateDungeon() is now split into: generateDungeon(), playDungeon()
+- Started HostileEntity.java
+- Added ravagers
+- Added pathfinding system and attack system for hostile entities
+- Added placeholder armors and weapons
+- Damage is now based on Minecraft's damage points system (https://minecraft.gamepedia.com/Armor#Defense_points)
+
+12/28/2020 (0_06c) Survival Update
+- Added attacking and defending system for the player
+- Added shields
+- Started Shield.java
+- Armors, weapons, and shields now accurately protect the player from damage
+- Armors, weapons, and shields now lose durability using Minecraft's mechanic
+- Added item max durability field
+- When printing player stats, armor, weapon, and shield info is now included
+- A warning now shows when a ravager is nearby
+
+12/30/2020 (0_07a) Potions Update
+- Revamped hostile entity's AI
+- Hostile entities can no longer see you through locked walls
+- Hostile entities now have "alert levels" which will control wheter a hostile entity will pathfind to you our not
+- Added message whenever a hostile entity is adjacent your tile
+- Hostile entity can now be despawned
+- Started GUITemplate.java
+- Rearranged shops to subcategories
+- Added hunger and saturation
+- Hunger mechanics now follow Minecraft's
+- Foods now restore hunger and saturation instead of health
+- You can now choose which food you will consume
+- You can no longer eat if you have no food in your inventory
+- Started PassiveEntity.java
+
+01/02/2021 (0_07b) The Flattening
+- Several static variables and methods were adjusted to be non-static
+- Most methods now require a player and a dungeon to function
+- Removed unnecessary main void functions
+- Player instances now has inventory field (Inventory class), cards field (Card class), and artifacts field (artifacts)
+- Dungeons are now objects
+- Dungeon instances now has an array of Tiles field
+- Tiles are now objects
+- Each tile now has their own fields (instead of a big array for each fields)
+- Added Birb the parrot, Jellie the cat, and Beeralis the bee
+- A passive entity can now spawn every time a player moves into a tile
+
+01/03/2021 (0_07c) Potions Update
+- There are now three dungeon objects, one for each difficulty
+- Removed generateDungeonEasy(), generateDungeonNormal(), generateDungeonHard()
+- Beast Sense cards now have functionality
+- Every 16 seconds (every level of Beast Sense deducts the timer by one second), a compass will track a ravager and will print out its direction
+- Cleaned more classes
+- Passive entities now spawn with a 1% chance (10% before)
+- Started Potion.java
+- Added potions: Potion of Healing I, Potion of Healing II, Potion of Harming I, Potion of Harming II
+
+01/03/2021 (0_07d) Potions Update
+- Started a new GUI
+- Added main, northPanel, and southPanel panels
+- Added pics, info, and output panels
+- Added labels for title, name, HP, ATK, DEF, and hunger
+- Started output text area
+- Input text field now accepts input (no assignment of value yet)
+- Labels can now update
+- Added foodList and price fields for Food
+- Food shops now use a for() statement for displaying shops
+
+01/14/2021 (0_07e) Potions Update
+- Added potionList, weaponList, armorList, shieldList for simpler shop listing;
+- Added price field for potions, weapons, armors, and shields
+- Added weak shields
+
+01/30/2021 (0_08a) Technicals Update
+- Added background.jpg and logo.png
+- Added scroll bar for output
+- Added enter button
+- Output panel is now not editable
+- Screen now shows background.jpg
+- Header now shows logo.png instead of "Decked Out" text
+- Started adding comments
+
+01/31/2021 (0_08b) Technicals Update
+- Started working on GUI proposal
+- Split info panel into playerStats and roomStats
+- Added inventory panel
+
+----- HIATUS -----
+
+02/24/2021 (0_08c) Technicals Update
+- Rearranged GUITemplate to declutter the panels and labels
+- Added slots, board, and slot, to be used for the inventory panel
+- Added coords, biome, and room JLabels to be used for the roomStats
+- Optimized shops
+- Shops now simply use the buyItem (and variants) instead of using them with switch-cases
+- Price parameter is now removed and now uses the item parameter to get the price
+- Added golden carrots, iron armor, iron swords, and iron shields
+- Added Matilda the Llama and Moo Moo Meadows room
+- Added the AFK Throne (a 1% chance of the AFK gods granting your wish: a free dungeon key)
+- Added some comments
+
+02/25/2021 (0_08d) Technicals Update
+- When an armor, a shield, or a sword is broken (0 or less durability), their respective slots will be No Armor, No Shield, and No sword, respectively.
+- The program now successfully terminates when exit is typed in the main menu
+- A bug of System.out.println not printing in the JTextArea has been fixed
+- Decked Out title has been reverted back to text instead of a photo
+
+02/26/2021 (0_09a) Bountiful Biomes Update
+- Started DebugGUITemplate.java
+- Renamed "The Keep" to "Castle Keep" and "Blackstone Keep" to "Bastion Keep"
+- Renamed roomUpSide to isUpSideClosed (and other variants)
+- Added Ancient Temple rooms, Void biome, Void room, Basalt Mines room, and Hoglin Stables room
+- Void biome and Void room are added for tiles that have all four sides closed
+- The program now has a debug frame that shows the dungeon grid
+- Each tile in the grid has a color that represents the dungeon tiles' biome
+- Ancient Temple is color dark green, Forest is color lime, Bastion Keep is color dark gray, Castle Keep is color gray, Nether Fortress is color red.
+- The grid also shows the sides of the tile (if the side of a tile is black, that way is closed)
+- Added treasureIcon, playerIcon, and entityIcon for the debug frame.
+- Tile now has a doorsClosedChance field which tells the probability of a way closing/getting locked
+- Tile now has a sameBiomeChance field which tells the probability of a tile having the same biome adjacent to it (down/left)
+- Added an algorithm to overwrite tiles that have a different biome than their adjacent four tiles (to remove single patches of biomes, doesn't work for tiles in x = 0 or y = 0)
+- Dungeon now correctly resets
+
+02/28/2021 (0_09b) Bountiful Biomes Update
+- Removed previous biome generation algorithm
+- Completely revamped biome generation again
+- Started Biome.java
+- Biomes are now objects of a tile instead of a String field (with biomeName, id, x, y, color, roomList)
+- Biomes now generate as a single tile and others tile will now pick the closest biome point as their biome (from: https://stackoverflow.com/questions/22713688/2d-tile-map-generation-with-biomes)
+- Biomes are now initialized
+- Dungeons now have a char[][] biomeMask that has the biome IDs in an array for the biome generator and debug GUI to use
+- DebugGUITemplate has now been optimized and now adapts to the biomeMask
+- Added Mesa Canyon, Icy Mountain, Mushroom Swamp, and their respective rooms
+- Added Ancient Dungeon in Ancient Temple and Blaze Chamber and Nether Wart Farms in Nether Fortress
+- Removed Ice Mountain from Forest
+- Renamed Small Desert to Small Beach, Prison to Prison Cells, and roomType to room
+- Fixed the bug where a treasure tile isn't entirely open because of a treasure overwritting a tile last (which leads to tiles beside the treasure tile being locked despite the treasure tile having no sides closed)
+- Tiles now have isTreasure, hasSoulFlames, and hasLoot fields
+- Revamped soul flame generation (now generates a fixed amount instead of a chance, never generates in x = 0 or y = 0 coordinates)
+- Tiles with soul flames are now visible in the debug GUI ("S")
+- Revamped loot barrel generation (now generates a fixed amount instead of a chance, never generates in x = 0 or y = 0 coordinates)
+- Soul flame chambers and loot barrels now disappear after collecting them
+- Tiles with loot are now visible in the debug GUI ("L")
+- Void biome and room is currently disabled
+- Soul Seeker points and Loot Finder points now affect the number of loot barrels or soul flame chambers (one more roll of a barrel or a chamber generating every 3 points)
+
+03/01/2021(0_09c) Bountiful Biomes Update
+- Void biome and room has been readded
+- Tiles with all sides closed are now changed to void biome and void room
+- Tiles with void biomes now displays as a black tile
+- Shop items are now initialized
+- Shop items are not variables anymore
+- Necessary fields of Player and Dungeon are now private
+- Added setters and getters for Player and Dungeon
+- Methods for resetting the player are now moved to Player
+- Added dungeonList for easier dungeon listing
+
+03/03/2021 (0_10a) Combat Update
+- Methods inside playDungeon has now been re-orded to fix text issues
+- Added chainmail armor, golden armor, netherite armor, stone sword, golden sword, netherite sword, diamond shield, netherite shield, potato, and cookie
+- Items on shops now display their infos (hunger points, attack points, or defense points)
+- Player updates are now grouped into one function
+- A new turn-based system has now been implemented
+- When there's an entity in a room, both the player and the entity will join a battle
+- The battle menu has options for the player to attack, defend, and run
+- Hostile entities now correctly resets
+- Player and entity now check their health after every move
+- Fixed a lot of bugs regarding entities' movements
+- Player can now exit the dungeon even without the lootbox
+- hasKey has now been renamed to hasLootbox
+- hunger() and health() has now been renamed to checkHunger() and checkHealth(), respectively
+- Player.action now correctly resets to prevent bugs regarding input
+- Added hostileEntityList for better listing and to handle all spawned hostile entities at once
+- Instances of passive and hostile entities are now moved to their respective classes inside initializing functions
+- Added zombie and skeleton
+- When multiple hostile entities are in a tile, they will now be queued
+- Armor and weapon durability mechanics has been changed
+- Removed unnecessary dungeon parameters
+
+03/04/2021 (0_11a) Exploration Update
+- Input of GUI now 10% works (JTextField now accepts input and passes it to player.action but there's only a chance for it to work in the switch-case)
+- Ravager now only spawns in hard difficulty
+- Skeletons now only spawns in normal and hard difficulty
+- Beast Sense now only works if a ravager is spawned
+
+03/09/2021 (0_11b) Exploration Update
+- Player's inventory 'inv' has now been renamed to foods
+- Player's inventory now has the foods, artifacts, cards, and potions array instead of player
+- All subclasses of Item now uses the ID variable and has constructors for it
+- Started LootTable.java, LootEntry.java, MiscItem.java
+- Loots now follow a more complex system similar to Minecraft (from: https://minecraftbedrock-archive.fandom.com/wiki/Tutorial:Loot_Table_Example)
+- Loot tables now have min and max rolls, total weight, pools of LootEntry, and a temporary loot array
+- A random integer will be generated in the range of minRolls and maxRolls for the exact number of rolls
+- Loot entries now have MiscItem entry, weight, min, and max counts
+- A random integer will be generated in the range of minCount and maxCount for the exact number of item to be received
+- The higher the weight, more chance for the loot entry to be picked
+- Added a generic loot table and nether loot table
+- Added loot tables for normal, mega, and omega loot boxes
+- There are currently two instances for coins, one in int form and one in MiscItem (will be fixed later)
+- Lootboxes now use the new loot tables for generating loot
+- Loot barrels now use the new genericLootTable for generating loot
+- Input now 90% works
+- Input has now been implemented for most of Game, Dungeon, and Player class
+- Stats now correctly updates
+- Screen now correctly updates as the biome changes
+- Added all png for biomes
+- Added more fonts (currently unused)
+- Background has been changed to dark gray (#222222) to match the GUI Proposal
+- Other background and texts has also been changed
+- GUI BorderLayout border has been set to 0
+- Keys, lootboxes, and coins are now instances of Item instead of int variables
+- Started FoodSlot.java and MiscSlot.java
+- Food inventory is now an array instead of an ArrayList
+- Food items now stack and now has a count
+- Food inventory can now be full and will not accept any other Food unless it has that food in the inventory
+- MiscItem inventory are now also stacked similar to Food
+
+03/11/2021 (0_11c) Exploration Update
+- Hard dungeon is now only 15 by 15
+- Zombie no longer spawn in the hard dungeon
+- Temporarily removed Mesa Canyon, Icy Mountain, Mushroom Swamp, Deep Ocean, and their rooms
+- Temporarily removed Blaze Chamber, Nether Wart Farms, Hoglin Stables, The Vaults, Prison Cells, and Ancient Dungeon
+- Each biome now has its own loot table
+- Added structure variable in Tile, currently unused
+- Added variable name in Shop with value "Ye Old Shoppe"
+
+03/11/2021 (0_12a) Rainbow Update
+- Started InventoryGUI.java
+- Removed the 5 by 4 grid in inventory panel
+- Added 3 buttons for opening the new GUI for foods, potions, and misc
+- New window for foods, potions, and misc GUIs
+- Closing the debug GUI will now only dispose the window instead of terminating the system
+- Potion inventory is now an array of Potion instead of an ArrayList
+- Potion inventory now works similar to Food and MiscItem
+- Added new pictures for Ancient Dungeon, Forest, Nether Fortress, Bastion Keep, and Castle Keep (built by me :D)
+
+03/13/2021 (0_12b) Rainbow Update
+- Pics folder has now been renamed to textures
+- Textures folder now have subfolders for biome, food, misc, and potion textures
+- Cards are now objects with name, effect, and tier instead of String
+- Starter CardSet.java
+- Card methods are now adapted to the new Card Object
+- Player now has a CardSet
+- Card methods are now split between Card and CardSet classes
+- Temporarily removed Jungle Set
+- Artifacts are now objects with item, rarity, and set
+- Started ArtifactBoard.java
+- Player now has an ArtifactBoard
+- Moved checkArtifactsBoard() to ArtifactBoard
+- Cards and artifacts are now subclasses of Item
+- Removed the board grid beside the inventory
+- Added 3 buttons for card deck, card set, and artifacts board
+- Added 3 GUIs for card deck, card set, and artifacts board
+- Input now completely works for trading area, card set changing, and shop
+
+03/17/2021 (0_12c) Rainbow Update
+- Added textures for food inventory
+- Added fileName field for Item
+- Food inventory now shows png of the item instead of just text
+- Minecraft font now FINALLY WORKSSSSSS
+- Texts and buttons are now using Minecraft fonts
+- Changed the name and colors of the open inventory, open set, and open board buttons
+- Changed the icon of JFrame
+- Changed the icon of Inventory GUIs to match their contents
+- Changed the layout of playerStats and roomStats to a more complex GroupLayout
+- Fixed bugs and issues regarding input
+
+
+Goals:
+(0_12a) Rainbow Update
+- fix and add textures for inventory
+- functionality for inventory GUIs
+- add references
+- buttons and guis for different stats (gear, status effects/card points)
+- fix visuals (add nether hall img)
+- add images
+
+(0_13a) Atlantis Update
+- add more effects (strength, resistance)
+- add more cards (invisibility)
+- add ocean biomes
+- shipwreck loot
+- treasure chest loot
+- simplifying the game
+- better parity between this app and the og game
+- sounds
+- add comments
+
+(0_14a) Wicked & Twisted Update
+- spawners
+- achievements/advancements
+- better shops
+- black market
+- villager trades for junks and materials
+
+(0_15a) Bees & Bugs Updates
+- fix bugs
+- optimize
+- tutorial and help GUIs
+- cleaning code
+- add exceptions
+- more setters and getters
+- more encapsulation
+
+(0_16a) Nether Update
+- pre-release
+- finalize codes
+- more optimizations
